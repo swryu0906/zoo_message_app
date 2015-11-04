@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, notice: "New user was successfully created!"
+      redirect_to users_path, notice: "New user '#{@user.username}' was successfully created!"
     else
       render :new
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "User profile was updated successfully!"
+      redirect_to user_path(@user), notice: "User '#{@user.username}' profile was updated successfully!"
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, notice: "User was successfully deleted!"
+    redirect_to users_path, notice: "User '#{@user.username}' was successfully deleted!"
   end
 
   private
