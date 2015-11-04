@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, except: [:index, :show]
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -15,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.user_id = current_user.id
+    @post.user_id = current_user.id
 
     if @post.save
       redirect_to posts_path, notice: "Post '#{@post.title}' was successfully created!"

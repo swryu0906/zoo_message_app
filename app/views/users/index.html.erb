@@ -16,8 +16,10 @@
     <td><%= user.description %></td>
     <td>
       <%= link_to "Detail", user_path(user) %>
-      <%= link_to "Edit", edit_user_path(user) %>
-      <%= link_to "Delete", user_path(user), method: :delete %>
+      <% if user.id == current_user.id %>
+        <%= link_to "Edit", edit_user_path(user) %>
+        <%= link_to "Delete", user_path(user), method: :delete %>
+      <% end %>
     </td>
   </tr>
   <% end %>

@@ -38,3 +38,7 @@ The zoo says she continues to be a great mother to the cubs.")
 @p4 = Post.create(user: @u2, title: "Giant panda twins say goodbye to Chinese nursery", body: "Twelve giant panda cubs in China prepare to leave their nursery as they turn three months old. The six pairs of twins were artificially-conceived in a Chinese breeding centre this year. Researchers say the cubs are gaining weight at an average of 50 grammes a day and are all in good health")
 @p5 = Post.create(user: @u1, title: "Pinnacles Condor Program" , body: "Pinnacles National Park joined the California Condor Recovery Program as a release and management site in 2003. The park currently manages 32 free-flying condors. For more information on individual condors, visit our profiles page. Park biologists use a variety of techniques to manage and monitor the population.")
 @p6 = Post.create(user: @u1, title: "California condors coming soon to San Luis Obispo County", body: "Seven juvenile California condors will be relocated from Big Sur’s Ventana Wilderness to the rugged hills east of San Simeon this July as part of the California Condor Recovery Program. The endangered species is North America's largest land bird.")
+
+
+@c1 = Comment.create(user: @u1, post:@p1, body: "I am glad, the baby elephant was saved!")
+@c1 = Comment.create(user: @u2, post:@p1, body: "Happy news!!!")
