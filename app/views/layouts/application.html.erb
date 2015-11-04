@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<nav>
+  <ul>
+    <li><%= link_to "USERS", users_path %></li>
+    <li><%= link_to "POSTS", posts_path %></li>
+  </ul>
+</nav>
 <%= yield %>
 
 </body>
