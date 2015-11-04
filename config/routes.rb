@@ -12,15 +12,23 @@ Rails.application.routes.draw do
   put '/users/:id(.:format)' => 'users#update'
   delete '/users/:id(.:format)' => 'users#destroy'
 
-  get '/posts(.:format)' => 'posts#index', as: 'posts'
-  post '/posts(.:format)' => 'posts#create'
-  get '/posts/new(.:format)' => 'posts#new', as: 'new_post'
-  get '/posts/:id/edit(.:format)' => 'posts#edit', as: 'edit_post'
-  get '/posts/:id(.:format)' => 'posts#show', as: 'post'
-  patch '/posts/:id(.:format)' => 'posts#update'
-  put '/posts/:id(.:format)' => 'posts#update'
-  delete '/posts/:id(.:format)' => 'posts#destroy'
+  # get '/posts(.:format)' => 'posts#index', as: 'posts'
+  # post '/posts(.:format)' => 'posts#create'
+  # get '/posts/new(.:format)' => 'posts#new', as: 'new_post'
+  # get '/posts/:id/edit(.:format)' => 'posts#edit', as: 'edit_post'
+  # get '/posts/:id(.:format)' => 'posts#show', as: 'post'
+  # patch '/posts/:id(.:format)' => 'posts#update'
+  # put '/posts/:id(.:format)' => 'posts#update'
+  # delete '/posts/:id(.:format)' => 'posts#destroy'
 
+
+  #  post '/posts/:post_id/comments(.:format)' => 'comments#create', as: 'post_comments'
+
+
+
+  resources :posts do
+    resources :comments
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

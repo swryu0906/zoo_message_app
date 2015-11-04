@@ -9,3 +9,10 @@
     <%= link_to "Go back to Post List", posts_path %>
   </p>
 </div>
+
+<%= render partial: 'comments/form' %>
+
+
+<h2>Comments (<%= @post.comments.size %>)</h2>
+
+<%= render partial: 'posts/comment', collection: @post.comments %>
