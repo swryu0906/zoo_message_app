@@ -1,8 +1,8 @@
-<h1>Users List</h1>
+<h1 class="text-center">Users List</h1>
 
-<%= link_to "Add a new user", new_user_path %>
+<h3 class="text-right"><%= link_to "Add a new user", new_user_path, class: "btn btn-primary" %><h3>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>ID</th>
     <th>User Name</th>
@@ -15,10 +15,10 @@
     <td><%= user.username %></td>
     <td><%= user.description %></td>
     <td>
-      <%= link_to "Detail", user_path(user) %>
+      <%= link_to "Profile", user_path(user), class: "btn btn-success" %>
       <% if user.id == current_user.id %>
-        <%= link_to "Edit", edit_user_path(user) %>
-        <%= link_to "Delete", user_path(user), method: :delete %>
+        <%= link_to "Edit", edit_user_path(user), class: "btn btn-success" %>
+        <%= link_to "Delete", user_path(user), method: :delete, class: "btn btn-danger" %>
       <% end %>
     </td>
   </tr>

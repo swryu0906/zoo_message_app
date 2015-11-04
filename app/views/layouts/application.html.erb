@@ -2,37 +2,32 @@
 <html>
 <head>
   <title>ZooMessageApp</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+  <%= render partial: 'layouts/nav' %>
 
-<nav>
-  <ul>
-    <li><%= link_to "USERS", users_path %></li>
-    <li><%= link_to "POSTS", posts_path %></li>
-  </ul>
-</nav>
+  <div class="container">
 
-<% if current_user %>
-  <ul>
-    <li><%= link_to "Hi, #{current_user.username.titleize}", user_path(current_user) %></li>
-    <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-  </ul>
-<% else %>
-  <ul>
-    <li><%= link_to "Login", login_path %></a></li>
-    <li><%= link_to "Signup", new_user_path %></a></li>
-  </ul>
-<% end %>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
 
+    <%= yield %>
 
-<%= yield %>
+  </div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 </body>
 </html>

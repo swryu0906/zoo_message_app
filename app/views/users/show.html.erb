@@ -1,23 +1,30 @@
-<h1>User Profile</h1>
+<h1 class="text-center">User Profile</h1>
 
-<p>User Name : <%= @user.username.titleize %></p>
-<p>Description : <%= @user.description %></p>
-<p><%= link_to "Edit", edit_user_path(@user) %> |
-  <%= link_to "Delete", user_path(@user) %></p>
+<div class="row">
+  <h2 class="text-center">User Name : <%= @user.username.titleize %></h2>
+  <h3 class="text-center">Description : <%= @user.description %></h3>
+  <p class="text-right">
+    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-success" %>
+    <%= link_to "Delete", user_path(@user), class: "btn btn-danger" %>
+  </p>
+</div>
 
+<div class="row">
+  <h2 class="text-center"><%= @user.username.titleize %>'s Posts</h2>
 
-<h2><%= @user.username.titleize %>'s Posts</h2>
-
-<% @posts.each do |post| %>
-  <div class="">
-    <h3><%= post.title %></h3>
-    <p><%= post.body %></p>
-    <p>
-      <%= link_to "Detail", post_path(post) %>
-      <% if @user.id == current_user.id %>
-        <%= link_to "Edit", edit_post_path(post) %>
-        <%= link_to "Delete", post_path(post), method: :delete %>
-      <% end %>
-    </p>
-  </div>
-  <% end %>
+  <% @posts.each do |post| %>
+    <div class="thumbnail row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3 class="text-center"><%= post.title %></h3>
+        <p><%= post.body %></p>
+        <p class="text-right">
+          <%= link_to "Detail", post_path(post), class: "btn btn-success" %>
+          <% if @user.id == current_user.id %>
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-success" %>
+            <%= link_to "Delete", post_path(post), method: :delete, class: "btn btn-danger" %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+</div>
